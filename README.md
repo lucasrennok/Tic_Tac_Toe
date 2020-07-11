@@ -25,4 +25,8 @@ OR the **entire column** have to be the number of the player
 OR the **entire primary diagonal** have to be the number of the player
 OR the **entire secondary diagonal** have to be the number of the player
 
+## To run the game
+You have to install Python
+Open a terminal window or CMD and put: _"python main.py"_
+
 **Good game for you ;)**
