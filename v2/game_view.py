@@ -42,8 +42,12 @@ class GameScreen():
                 if(num_players==1):
                     x = randint(0,2)
                     y = randint(0,2)
-                    self.game.writeInCoordinate(2,x,y)
-                    self.game.set_actual_player(1)
+                    finished = self.game.writeInCoordinate(2,x,y)
+                    while(finished==-1):
+                        x = randint(0,2)
+                        y = randint(0,2)
+                        finished = self.game.writeInCoordinate(2,x,y)
+                        self.game.set_actual_player(1)
 
             self.window.FindElement("output").Update("")
             print(self.game)
