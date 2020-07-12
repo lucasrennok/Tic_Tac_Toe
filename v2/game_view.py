@@ -8,10 +8,9 @@ class GameScreen():
         #layout
         layout = [
             [sg.Text("Choose a coordinate")],
-            [sg.Text("x:"),sg.Input(key="x",size=(3,0)),sg.Text("y:"),sg.Input(key="y",size=(3,0))],
-            [sg.Button("0", key="1", size=(2,0),pad=((35,0),0)),sg.Button("0", key="2", size=(2,0),pad=((0,0),0)),sg.Button("0", key="3", size=(2,0),pad=((0,35),0))],
-            [sg.Button("0", key="4", size=(2,0),pad=((35,0),0)),sg.Button("0", key="5", size=(2,0),pad=((0,0),0)),sg.Button("0", key="6", size=(2,0),pad=((0,35),0))],
-            [sg.Button("0", key="7", size=(2,0),pad=((35,0),0)),sg.Button("0", key="8", size=(2,0),pad=((0,0),0)),sg.Button("0", key="9", size=(2,0),pad=((0,35),0))]
+            [sg.Button("0,0", key="b1", size=(2,0),pad=((35,0),0)),sg.Button("0,1", key="b2", size=(2,0),pad=((0,0),0)),sg.Button("0,2", key="b3", size=(2,0),pad=((0,35),0))],
+            [sg.Button("1,0", key="b4", size=(2,0),pad=((35,0),0)),sg.Button("1,1", key="b5", size=(2,0),pad=((0,0),0)),sg.Button("1,2", key="b6", size=(2,0),pad=((0,35),0))],
+            [sg.Button("2,0", key="b7", size=(2,0),pad=((35,0),0)),sg.Button("2,1", key="b8", size=(2,0),pad=((0,0),0)),sg.Button("2,2", key="b9", size=(2,0),pad=((0,35),0))]
         ]
         #window
         self.window = sg.Window('Tic Tac Toe Game').layout(layout)
@@ -31,18 +30,44 @@ class GameScreen():
         finished = 4
         while(finished==4 or finished==-1):
             #read data
-            self.button = self.window.FindElement('1')
-            self.button, self.data = self.window.Read()
-            
-            print('teste')
+            button, self.data = self.window.Read()
 
             player = self.game.get_actual_player()
-            
-            # button data
-            x = self.data['x']
-            y = self.data['y']
 
-            finished = self.game.writeInCoordinate(int(player),int(x),int(y))
+            x = 0
+            y = 0
+
+            if(button=="b1"):
+                x = 0
+                y = 0
+            elif(button=="b2"):
+                x = 0
+                y = 1
+            elif(button=="b3"):
+                x = 0
+                y = 2
+            elif(button=="b4"):
+                x = 1
+                y = 0
+            elif(button=="b5"):
+                x = 1
+                y = 1
+            elif(button=="b6"):
+                x = 1
+                y = 2
+            elif(button=="b7"):
+                x = 2
+                y = 0
+            elif(button=="b8"):
+                x = 2
+                y = 1
+            elif(button=="b9"):
+                x = 2
+                y = 2
+            else:
+                return 0
+
+            finished = self.game.writeInCoordinate(int(player),x,y)
 
             if(finished==4):
                 if(num_players==1):

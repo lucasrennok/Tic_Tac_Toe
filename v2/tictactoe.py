@@ -33,7 +33,7 @@ class TicTacToe:
             number_of_button=7
         number_of_button+=y
 
-        self.game_view.buttonLock(str(number_of_button), player_number)
+        self.game_view.buttonLock('b'+str(number_of_button), player_number)
         self.matrix_game[x][y]=player_number
 
         if(player_number==1):
