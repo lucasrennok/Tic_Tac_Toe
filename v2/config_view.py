@@ -6,8 +6,8 @@ class ConfigScreen:
     def __init__(self):
         #layout
         layout = [
-            [sg.Text('You will play:'),sg.Radio('Solo', 'players', key='solo'), sg.Radio('With a Friend', 'players', key='duo')],
-            [sg.Text('Want to be the first?'), sg.Radio('Yes', 'play-first', key='player1'), sg.Radio('No', 'play-first', key='player2')],
+            [sg.Text('You will play:'),sg.Radio('Solo', 'players', key='solo', default=True), sg.Radio('With a Friend', 'players', key='duo')],
+            [sg.Text('Want to be the first?'), sg.Radio('Yes', 'play-first', key='player1', default=True), sg.Radio('No', 'play-first', key='player2')],
             [sg.Button('Confirm')]
         ]
         #window

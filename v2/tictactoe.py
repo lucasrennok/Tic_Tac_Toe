@@ -25,6 +25,15 @@ class TicTacToe:
     def writeInCoordinate(self,player_number,x,y):
         if(self.matrix_game[x][y]!=0):
             return -1
+
+        number_of_button=1
+        if(x==1):
+            number_of_button=4
+        elif(x==2):
+            number_of_button=7
+        number_of_button+=y
+
+        self.game_view.buttonLock(str(number_of_button), player_number)
         self.matrix_game[x][y]=player_number
 
         if(player_number==1):
@@ -79,3 +88,6 @@ class TicTacToe:
 
     def set_actual_player(self,actual_player):
         self.actual_player = actual_player
+
+    def set_game_view(self,game_view):
+        self.game_view = game_view
