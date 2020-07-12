@@ -7,13 +7,13 @@ class GameScreen():
     def __init__(self, game):
         #layout
         layout = [
-            [sg.Text("Game", key='players')],
-            [sg.Text("x:"),sg.Input(key="x"),sg.Text("y:"),sg.Input(key="y")],
+            [sg.Text("Choose a coordinate")],
+            [sg.Text("x:"),sg.Input(key="x",size=(3,0)),sg.Text("y:"),sg.Input(key="y",size=(3,0))],
             [sg.Button("Confirm")],
-            [sg.Output(size=(30,20), key="output")]
+            [sg.Output(size=(6,6), key="output")]
         ]
         #window
-        self.window = sg.Window('Game').layout(layout)
+        self.window = sg.Window('Tic Tac Toe Game').layout(layout)
         #data extract
         self.game = game
         self.play_first = game.get_play_first()
