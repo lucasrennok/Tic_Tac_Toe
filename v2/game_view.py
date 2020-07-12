@@ -17,14 +17,17 @@ class GameScreen():
         #data extract
         self.game = game
         self.play_first = game.get_play_first()
+        
 
     def play(self):
         self.game.set_game_view(self)
         num_players = self.game.get_num_players()
+
+        self.window.finalize()
         if(num_players==1 and self.play_first==False):
-            x = randint(0,2)
-            y = randint(0,2)
-            self.game.writeInCoordinate(2,x,y)
+                x = randint(0,2)
+                y = randint(0,2)
+                self.game.writeInCoordinate(2,x,y)
 
         print(self.game)
         finished = 4
