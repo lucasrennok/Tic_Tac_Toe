@@ -8,9 +8,9 @@ class GameScreen():
         #layout
         layout = [
             [sg.Text("Choose a coordinate")],
-            [sg.Button("0,0", key="b1", size=(2,0),pad=((35,0),0)),sg.Button("0,1", key="b2", size=(2,0),pad=((0,0),0)),sg.Button("0,2", key="b3", size=(2,0),pad=((0,35),0))],
-            [sg.Button("1,0", key="b4", size=(2,0),pad=((35,0),0)),sg.Button("1,1", key="b5", size=(2,0),pad=((0,0),0)),sg.Button("1,2", key="b6", size=(2,0),pad=((0,35),0))],
-            [sg.Button("2,0", key="b7", size=(2,0),pad=((35,0),0)),sg.Button("2,1", key="b8", size=(2,0),pad=((0,0),0)),sg.Button("2,2", key="b9", size=(2,0),pad=((0,35),0))]
+            [sg.Button(" ", key="b1", size=(2,0),pad=((35,0),0)),sg.Button(" ", key="b2", size=(2,0),pad=((0,0),0)),sg.Button(" ", key="b3", size=(2,0),pad=((0,35),0))],
+            [sg.Button(" ", key="b4", size=(2,0),pad=((35,0),0)),sg.Button(" ", key="b5", size=(2,0),pad=((0,0),0)),sg.Button(" ", key="b6", size=(2,0),pad=((0,35),0))],
+            [sg.Button(" ", key="b7", size=(2,0),pad=((35,0),0)),sg.Button(" ", key="b8", size=(2,0),pad=((0,0),0)),sg.Button(" ", key="b9", size=(2,0),pad=((0,35),0))]
         ]
         #window
         self.window = sg.Window('Tic Tac Toe Game').layout(layout)
