@@ -1,14 +1,21 @@
 
 from random import randint
+from multiplayer import multiplayer
 
 #Class of the TicTacToe
 class TicTacToe:
     #Variables
     matrix_game = [[0,0,0],[0,0,0],[0,0,0]]
     players = 1
+    online = False
 
     def __init__(self,players):
         self.players = players
+        if(players==3):
+            self.online = True
+            self.players = 2
+        else:
+            self.online = False
 
     def __str__(self):
         num_of_players = "Game with " + str(self.players) + " players"
@@ -26,8 +33,10 @@ class TicTacToe:
             print("--You chose to play alone--")
         else:
             print("--Have a good battle--")
-        print("\nPlayer One:")
+        print("**If you are playing the multiplayer mode, the first player will be the host**\n")
         first = input(">Do you want to be the first?\n1-Yes\nAny Key-No\n>")
+        if(self.online==True):
+            return self.multiplayer_game(first)
         while(True):
             if(first=='1'):
                 print(self)
@@ -84,6 +93,55 @@ class TicTacToe:
                 elif(self.matrix_completed()):
                     return 0
     
+    def multiplayer_game(self, will_be_the_first):
+        self.other_player_ip = input("What is your friend ip?\n>")
+        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024)
+        if(will_be_the_first=='1'):
+            self.this_player = 1
+        else:
+            self.this_player = 2
+        
+        print(self)
+        while(True):
+            if(will_be_the_first=='1'):
+                mesage = int(self.instances_server_client.start_client())
+                if(mesage>=7):
+                    p_x = 2
+                    p_y = mesage-7
+                elif(mesage>=4):
+                    p_x = 1
+                    p_y = mesage-4
+                else:
+                    p_x = 0
+                    p_y = mesage-1
+                self.matrix_game[p_x][p_y] = self.this_player
+                will_be_the_first = '0'
+            else:
+                mesage = int(self.instances_server_client.start_server())
+                if(mesage>=7):
+                    p_x = 2
+                    p_y = mesage-7
+                elif(mesage>=4):
+                    p_x = 1
+                    p_y = mesage-4
+                else:
+                    p_x = 0
+                    p_y = mesage-1
+                if(self.this_player==1):
+                    self.matrix_game[p_x][p_y] = 2
+                else:
+                    self.matrix_game[p_x][p_y] = 1
+                will_be_the_first = '1'
+
+            print(self)
+
+            if(self.matrix_completed()):
+                return 0
+            elif(self.won(1)):
+                return 1
+            elif(self.won(2)):
+                return 2
+
     def start_new_game(self):
         answer = input(">Do you want to play one more game?\n1-Yes\nAny Key-No\n>")
         if(answer=='1'):
@@ -91,6 +149,16 @@ class TicTacToe:
         else:
             answer = False
         return answer
+
+    #not using yet
+    def calculate_cube(self,p_x,p_y):
+        coordinate = 1
+        if(p_x==1):
+            coordinate = 4
+        elif(p_x==2):
+            coordinate = 7
+        coordinate+=p_y
+        return coordinate
 
     def place_already_selected(self,x,y):
         if(self.matrix_game[x][y]!=0):
