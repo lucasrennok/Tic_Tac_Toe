@@ -35,7 +35,7 @@ class TicTacToe:
             print("--You chose to play alone--")
         else:
             print("--Have a good battle--")
-        print("**If you are playing the multiplayer mode, the first player will be the host**\n")
+        print("**If you are playing the multiplayer mode, the second player will be the server**\n")
         first = input(">Do you want to be the first?\n1-Yes\nAny Key-No\n>")
 
         #CHANGED HERE
@@ -101,17 +101,18 @@ class TicTacToe:
     #CHANGED HERE
     def multiplayer_game(self, will_be_the_first):
         self.other_player_ip = input("What is your friend ip?\n>")
-        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024)
         if(will_be_the_first=='1'):
             self.this_player = 1
         else:
             self.this_player = 2
         
         print(self)
+        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024)
+        self.instances_server_client.start_client()
+        self.instances_server_client.start_server()
         while(True):
             if(will_be_the_first=='1'):
-                mesage = int(self.instances_server_client.start_client())
-                self.instances_server_client.close_multiplayer()
+                mesage = int(self.instances_server_client.client_send_mesage())
                 if(mesage>=7):
                     p_x = 2
                     p_y = mesage-7
@@ -124,8 +125,7 @@ class TicTacToe:
                 self.matrix_game[p_x][p_y] = self.this_player
                 will_be_the_first = '0'
             else:
-                mesage = int(self.instances_server_client.start_server())
-                self.instances_server_client.close_multiplayer()
+                mesage = int(self.instances_server_client.server_receive_mesage())
                 if(mesage>=7):
                     p_x = 2
                     p_y = mesage-7

@@ -8,11 +8,15 @@ class multiplayer:
 
     def start_server(self):
         self.server.accept_connections()
+
+    def server_receive_mesage(self):
         mesage = self.server.receive_mesage()
         return mesage
 
     def start_client(self):
         self.client.connect_to_server()
+
+    def client_send_mesage(self):
         mesage = input("coordinate: ")
         self.client.send_mesage(mesage)
         return mesage
