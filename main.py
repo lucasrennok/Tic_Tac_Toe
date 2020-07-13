@@ -7,6 +7,7 @@ def main():
     while(True):
         option = 0
 
+        #MULTIPLAYER IS IN TESTS
         print("\n\n**Welcome to the Tic Tac Toe Game**\n\n>Select one:\n 1- Player One vs Computer\n 2- One Player vs Player Two\n 3-2 Players Online\n")
         while(option!=1 and option!=2 and option!=3):
             answer = input(">")

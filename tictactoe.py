@@ -11,6 +11,8 @@ class TicTacToe:
 
     def __init__(self,players):
         self.players = players
+        
+        #CHANGED HERE
         if(players==3):
             self.online = True
             self.players = 2
@@ -35,8 +37,11 @@ class TicTacToe:
             print("--Have a good battle--")
         print("**If you are playing the multiplayer mode, the first player will be the host**\n")
         first = input(">Do you want to be the first?\n1-Yes\nAny Key-No\n>")
+
+        #CHANGED HERE
         if(self.online==True):
             return self.multiplayer_game(first)
+
         while(True):
             if(first=='1'):
                 print(self)
@@ -93,6 +98,7 @@ class TicTacToe:
                 elif(self.matrix_completed()):
                     return 0
     
+    #CHANGED HERE
     def multiplayer_game(self, will_be_the_first):
         self.other_player_ip = input("What is your friend ip?\n>")
         self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024)
