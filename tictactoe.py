@@ -111,6 +111,7 @@ class TicTacToe:
         while(True):
             if(will_be_the_first=='1'):
                 mesage = int(self.instances_server_client.start_client())
+                self.instances_server_client.close_multiplayer()
                 if(mesage>=7):
                     p_x = 2
                     p_y = mesage-7
@@ -124,6 +125,7 @@ class TicTacToe:
                 will_be_the_first = '0'
             else:
                 mesage = int(self.instances_server_client.start_server())
+                self.instances_server_client.close_multiplayer()
                 if(mesage>=7):
                     p_x = 2
                     p_y = mesage-7
