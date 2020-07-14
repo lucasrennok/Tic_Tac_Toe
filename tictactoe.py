@@ -1,6 +1,7 @@
 
 from random import randint
 from multiplayer import multiplayer
+import time
 
 #Class of the TicTacToe
 class TicTacToe:
@@ -107,12 +108,14 @@ class TicTacToe:
             self.this_player = 2
         
         print(self)
-        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024)
-        self.instances_server_client.start_client()
-        self.instances_server_client.start_server()
+        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024, will_be_the_first)
+        if(will_be_the_first!='1'):
+            self.instances_server_client.start_server()
+        else:
+            self.instances_server_client.start_client()
         while(True):
             if(will_be_the_first=='1'):
-                mesage = int(self.instances_server_client.client_send_mesage())
+                mesage = int(self.instances_server_client.any_send_mesage())
                 if(mesage>=7):
                     p_x = 2
                     p_y = mesage-7
@@ -125,7 +128,7 @@ class TicTacToe:
                 self.matrix_game[p_x][p_y] = self.this_player
                 will_be_the_first = '0'
             else:
-                mesage = int(self.instances_server_client.server_receive_mesage())
+                mesage = int(self.instances_server_client.any_receive_mesage())
                 if(mesage>=7):
                     p_x = 2
                     p_y = mesage-7

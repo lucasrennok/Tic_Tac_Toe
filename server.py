@@ -16,6 +16,10 @@ class server:
         print("Online Server")
         (self.client_socket, self.address) = self.server_socket.accept()
         print("Connected\n")
+
+    def send_mesage(self, mesage):
+        self.client_socket.send(mesage.encode())
+        print("Mesage Sent: ", mesage) 
     
     def receive_mesage(self):
         print("Waiting for data...\n")
