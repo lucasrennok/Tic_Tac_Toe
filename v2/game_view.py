@@ -68,7 +68,7 @@ class GameScreen():
                 x = 2
                 y = 2
             else:
-                return 0
+                return None
 
             finished = self.game.writeInCoordinate(int(player),x,y)
 
@@ -88,6 +88,7 @@ class GameScreen():
         return finished
 
     def close_window(self):
+        self.game.reset_game()
         self.window.close()
 
     def buttonLock(self,number_button,player):

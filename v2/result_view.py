@@ -14,10 +14,16 @@ class ResultScreen:
         #layout
         layout = [
             [sg.Text(who_won)],
-            [sg.Button('Ok')]
+            [sg.Button('Quit', key="quit"),sg.Button('Play More', key="more")]
         ]
         #window
         self.window = sg.Window('End Window').layout(layout)
+        
+    def more_games(self):
         #read data
         self.button, self.data = self.window.Read()
+        if(self.button=='more'):
+            return 1
+        else:
+            return 0 
 

@@ -91,3 +91,8 @@ class TicTacToe:
 
     def set_game_view(self,game_view):
         self.game_view = game_view
+
+    def reset_game(self):
+        for i in range(3):
+            for j in range(3):
+                self.matrix_game[i][j]=0

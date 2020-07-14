@@ -21,8 +21,10 @@ class ConfigScreen:
         play_first = self.data['player1']
         if(one_player==True):
             game = TicTacToe(1,play_first)
-        else:
+        elif(one_player==False):
             game = TicTacToe(2,play_first)
+        else:
+            game = None
         return game
 
     def close_window(self):
