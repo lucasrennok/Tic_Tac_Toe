@@ -20,7 +20,7 @@ class multiplayer:
         self.server.connect_to_server()
 
     def any_send_mesage(self):
-        mesage = input("coordinate: ")
+        mesage = input(">Choose a coordinate: ")
         self.server.send_mesage(mesage)
         return mesage
 

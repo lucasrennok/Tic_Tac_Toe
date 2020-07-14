@@ -14,17 +14,17 @@ class client:
         # create the socket
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
         self.client_socket.connect((self.HOST_SERVER,self.PORT_SERVER))
-        print("Connected\n")
+        print("** Connected to the game **\n")
         
     def send_mesage(self,mesage):
         self.client_socket.send(mesage.encode()) 
-        print("Mesage Sent: ", mesage) 
+        print("Sent: ", mesage) 
 
     def receive_mesage(self):
         print("Waiting for data...\n")
         receive = self.client_socket.recv(self.MAX_BYTES)
         mesage = receive.decode() 
-        print("Received mesage: ", mesage)
+        print("Received: ", mesage)
         return mesage
 
     def close_connection(self):

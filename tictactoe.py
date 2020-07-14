@@ -33,11 +33,17 @@ class TicTacToe:
     def execute_game(self):
         p1_x=-1; p1_y=-1; p2_x=-1; p2_y=-1
         if(self.players==1):
-            print("--You chose to play alone--")
+            print("--You chose to play alone--\n")
         else:
-            print("--Have a good battle--")
-        print("**If you are playing the multiplayer mode, the second player will be the server**\n")
-        first = input(">Do you want to be the first?\n1-Yes\nAny Key-No\n>")
+            print("--Have a good battle--\n")
+
+        first = 1
+        if(self.online==True):
+            print("**The first player will be that one who will connect to a game**")
+            print("**The second player will be that one who created a game**\n-> Do you want to:\n")
+            first = input("  1-Connect to a game\n  Any Key-Create a game\n>")
+        else:
+            first = input(">Do you want to be the first?\n1-Yes\nAny Key-No\n>")
 
         #CHANGED HERE
         if(self.online==True):
@@ -101,18 +107,22 @@ class TicTacToe:
     
     #CHANGED HERE
     def multiplayer_game(self, will_be_the_first):
-        self.other_player_ip = input("What is your friend ip?\n>")
+        self.other_player_ip = ""
         if(will_be_the_first=='1'):
+            self.other_player_ip = input("What is your friend ip?\n>")
             self.this_player = 1
         else:
+            print("\n*OBS.:Send your IP to your friend*")
             self.this_player = 2
         
-        print(self)
         self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024, will_be_the_first)
+        
         if(will_be_the_first!='1'):
             self.instances_server_client.start_server()
         else:
             self.instances_server_client.start_client()
+
+        print(self)
         while(True):
             if(will_be_the_first=='1'):
                 mesage = int(self.instances_server_client.any_send_mesage())

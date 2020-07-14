@@ -13,19 +13,19 @@ class server:
         self.server_socket.bind((self.HOST, self.PORT))
         self.server_socket.listen(self.MAX_CONNECTIONS)
 
-        print("Online Server")
+        print("--Server Online--")
         (self.client_socket, self.address) = self.server_socket.accept()
-        print("Connected\n")
+        print("** One Player Connected **\n")
 
     def send_mesage(self, mesage):
         self.client_socket.send(mesage.encode())
-        print("Mesage Sent: ", mesage) 
+        print("Sent: ", mesage) 
     
     def receive_mesage(self):
         print("Waiting for data...\n")
         receive = self.client_socket.recv(self.MAX_BYTES)
         mesage = receive.decode() 
-        print("Received mesage: ", mesage)
+        print("Received: ", mesage)
         return mesage
 
     def close_connection(self):
