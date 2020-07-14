@@ -7,9 +7,6 @@ class client:
         self.MAX_BYTES = max_bytes
 
     def connect_to_server(self):
-        # create the socket
-        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server_socket.bind((self.HOST_SERVER, self.PORT_SERVER))
 
         # create the socket
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
