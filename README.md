@@ -20,6 +20,9 @@ The row x can be only values: **0,1,2**
 
 The column y can be only values: **0,1,2**
 
+Multiplayer Mode accept: 1,2,3,4,5,6,7,8,9 **ONLY**... 
+I am changing it, for a while it is going to be that Inputs.
+
 ## Acceptable Outputs (to Won)
 
 ![Situations that you win](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Jdv.png/180px-Jdv.png)
