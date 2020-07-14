@@ -20,9 +20,6 @@ The row x can be only values: **0,1,2**
 
 The column y can be only values: **0,1,2**
 
-"2 Players Online" Mode accept: 1,2,3,4,5,6,7,8,9 **ONLY**... 
-I am changing it, for a while it is going to be that Inputs.
-
 ## Acceptable Outputs (to Won)
 
 ![Situations that you win](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Jdv.png/180px-Jdv.png)
@@ -40,6 +37,12 @@ OR the **entire secondary diagonal** have to be the number of the player
 
 2- Open a terminal window or CMD and put: _"python main.py"_
 
+## 2 Player Online
+This option is to play online with a friend.
+
+The first player have to create a game to the other connect to that game.
+
+The person who will connect to the game have to put the host ip.
+
 **Good game for you ;)**
 
-Obs.: I am still testing "2 Players Online" Mode, if you find some bug or something wrong, contact me please, thanks.
