@@ -144,10 +144,13 @@ class TicTacToe:
             print(self)
 
             if(self.matrix_completed()):
+                self.instances_server_client.close_multiplayer()
                 return 0
             elif(self.won(1)):
+                self.instances_server_client.close_multiplayer()
                 return 1
             elif(self.won(2)):
+                self.instances_server_client.close_multiplayer()
                 return 2
 
     def start_new_game(self):
