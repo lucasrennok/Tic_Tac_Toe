@@ -1,4 +1,4 @@
-# Minesweeper V2
+# Tic Tac Toe V2 With Interface
 This is the version with an interface made with PySimpleGUI.
 
 ## Tic Tac Toe Game
