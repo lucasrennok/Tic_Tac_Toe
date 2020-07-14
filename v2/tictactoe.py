@@ -6,7 +6,8 @@ class TicTacToe:
     #Variables
     matrix_game = [[0,0,0],[0,0,0],[0,0,0]]
 
-    def __init__(self,players,play_first):
+    def __init__(self,players,play_first,online):
+        self.online = online
         self.players = players
         if(play_first):
             self.actual_player = 1
@@ -85,6 +86,9 @@ class TicTacToe:
     
     def get_play_first(self):
         return self.play_first
+    
+    def set_play_first(self, first):
+        self.play_first = first
 
     def set_actual_player(self,actual_player):
         self.actual_player = actual_player
