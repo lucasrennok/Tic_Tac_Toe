@@ -12,8 +12,6 @@ class TicTacToe:
 
     def __init__(self,players):
         self.players = players
-        
-        #CHANGED HERE
         if(players==3):
             self.online = True
             self.players = 2
@@ -42,12 +40,9 @@ class TicTacToe:
             print("**The first player will be that one who will connect to a game**")
             print("**The second player will be that one who created a game**\n-> Do you want to:\n")
             first = input("  1-Connect to a game\n  Any Key-Create a game\n>")
+            return self.multiplayer_game(first)
         else:
             first = input(">Do you want to be the first?\n1-Yes\nAny Key-No\n>")
-
-        #CHANGED HERE
-        if(self.online==True):
-            return self.multiplayer_game(first)
 
         while(True):
             if(first=='1'):
@@ -105,7 +100,6 @@ class TicTacToe:
                 elif(self.matrix_completed()):
                     return 0
     
-    #CHANGED HERE
     def multiplayer_game(self, will_be_the_first):
         self.other_player_ip = ""
         if(will_be_the_first=='1'):
@@ -115,7 +109,7 @@ class TicTacToe:
             print("\n*OBS.:Send your IP to your friend*")
             self.this_player = 2
         
-        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024, will_be_the_first)
+        self.instances_server_client = multiplayer(self.other_player_ip, 1500, 2, 1024, will_be_the_first,self)
         
         if(will_be_the_first!='1'):
             self.instances_server_client.start_server()
@@ -173,16 +167,6 @@ class TicTacToe:
         else:
             answer = False
         return answer
-
-    #not using yet
-    def calculate_cube(self,p_x,p_y):
-        coordinate = 1
-        if(p_x==1):
-            coordinate = 4
-        elif(p_x==2):
-            coordinate = 7
-        coordinate+=p_y
-        return coordinate
 
     def place_already_selected(self,x,y):
         if(self.matrix_game[x][y]!=0):
