@@ -27,3 +27,5 @@ class ResultScreen:
         else:
             return 0 
 
+    def close_window(self):
+        self.window.close()

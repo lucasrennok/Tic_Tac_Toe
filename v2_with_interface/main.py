@@ -34,6 +34,7 @@ def main():
 
             result_window = ResultScreen(result)
             more_games = result_window.more_games()
+            result_window.close_window()
 
             del result_window
         elif(option=="online"):
@@ -66,6 +67,7 @@ def main():
 
             result_window = ResultScreen(result)
             more_games = result_window.more_games()
+            result_window.close_window()
 
             del result_window
         else:
