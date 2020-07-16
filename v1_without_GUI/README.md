@@ -1,5 +1,5 @@
-# Tic Tac Toe V1 Without Interface
-This is the version without interface.
+# Tic Tac Toe V1 Without GUI
+This is the version without GUI.
 
 ## Tic Tac Toe Game
 

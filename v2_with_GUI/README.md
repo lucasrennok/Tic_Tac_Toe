@@ -1,5 +1,5 @@
-# Tic Tac Toe V2 With Interface
-This is the version with an interface made with PySimpleGUI.
+# Tic Tac Toe V2 With GUI
+This is the version with a GUI made with PySimpleGUI.
 
 ## Tic Tac Toe Game
 
@@ -32,7 +32,7 @@ Obs.: Avoid clicking on the window when it's not your turn, in that moments the 
 #### Rules
 The players can't select the same coordinate, only coordinates which don't have numbers
 
-The players can only select the coordinates from the matrix which is on the interface 
+The players can only select the coordinates at the GUI
 
 ### Acceptable Outputs (to Won)
 
