@@ -1,58 +1,34 @@
-# :full_moon: Tic Tac Toe V2 With GUI
-This is the version with a GUI made with PySimpleGUI.
+# :full_moon: Tic Tac Toe — Interface gráfica
 
-A gif to see how it works:
+Versão com interface gráfica, feita com **FreeSimpleGUI** (fork livre e
+compatível do antigo PySimpleGUI, que passou a exigir licença paga).
 
-![executing](./images/executing.gif)
+![executando](./images/executing.gif)
 
-## :floppy_disk: Tic Tac Toe Game
+## :bike: Como rodar
 
-There are a matrix that have coordinates **(x,y)**
+```sh
+pip install -r requirements.txt
+python main.py
+```
 
-You have to choose one by one to get the acceptable outputs and win the game
+Requer Python 3 com Tkinter (já incluso na maioria das instalações; no Linux,
+pode ser preciso `sudo apt install python3-tk`).
 
-![Tic tac toe matrix](https://geneticaebioquimica.files.wordpress.com/2016/06/ohe9qqo.png?w=676)
+## :star: Offline
 
-When you run the program you will have to choose offline mode or online mode
+Escolha jogar sozinho (contra outra pessoa no mesmo PC) ou com um amigo na
+mesma máquina, e quem começa. O jogo então inicia.
 
-### :star: Offline
-You will have to choose if you are going to play alone or with a friend
+## :star2: Online
 
-After that you will choose if you will be the first, so if you will select the first coordinate at the game
+Um jogador cria a partida e o outro se conecta pelo IP. Quem se conecta é o
+Jogador 1; quem cria é o Jogador 2.
 
-And the game starts
+> **Obs.:** evite clicar na janela quando não for sua vez — nesse momento o
+> jogo está esperando a jogada do outro jogador.
 
-### :star2: Online
-You will have to choose if you will create the game or connect to a game that was created
+## :books: Regras
 
-If you chose to create a game, press start and wait your friend, when he connects to your game the window will change
-
-If you chose to connect to a game, type your friend's ip at the input text and then press the button to connect to the game, after a few seconds the window will change
-
-After that, you and the other player will be at the game, the Player 1 is the person that connected to the game and the Player 2 is the person that created the game, so good luck and good game.
-
-**Obs.:** Avoid clicking on the window when it's not your turn, in that moments the game is waiting for data from your friend and if you click somewhere the window can change to "not responding"
-
-#### :books: Rules
-The players can't select the same coordinate, only coordinates which don't have numbers
-
-The players can only select the coordinates at the GUI
-
-### :trophy: Acceptable Outputs (to Win)
-
-![Situations that you win](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Jdv.png/180px-Jdv.png)
-
-The **entire row** have to be the number of the player 
-
-OR the **entire column** have to be the number of the player
-
-OR the **entire primary diagonal** have to be the number of the player
-
-OR the **entire secondary diagonal** have to be the number of the player
-
-### :bike: To run the game
-> 1. You have to install Python
->
-> 2. Open a terminal window or CMD and put: _"python main.py"_
-
-**:v: Good game for you ;)**
+- Os jogadores se alternam escolhendo casas livres do tabuleiro.
+- Vence quem completar uma linha, coluna ou diagonal.

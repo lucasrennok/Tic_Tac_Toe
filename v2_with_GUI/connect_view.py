@@ -1,5 +1,5 @@
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from multiplayer import multiplayer
 from tictactoe import TicTacToe
 import time

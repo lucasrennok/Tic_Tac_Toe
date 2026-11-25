@@ -1,15 +1,31 @@
-# :coffee: Tic Tac Toe Game
+# :video_game: Tic Tac Toe
 
-This Repository is separated in: **v1_without_GUI** and **v2_with_GUI**
+Jogo da velha em Python, em duas versões:
 
-You can read better about them in their READMEs which are in their folders.
+- **[v1_without_GUI](./v1_without_GUI)** — versão de terminal, com um computador
+  imbatível (minimax) ou dois jogadores.
+- **[v2_with_GUI](./v2_with_GUI)** — versão com interface gráfica, incluindo
+  modo online para jogar com um amigo pela rede.
 
-## :green_book: V1
-The version 1 is the game(Tic Tac Toe) without an GUI
+Cada pasta tem seu próprio README com instruções.
 
-![executing V1](/v1_without_GUI/images/executing.gif)
+## :green_book: V1 — Terminal
 
-## :green_book: V2
-The version 2 is the game(Tic Tac Toe) with an GUI
+Contra o computador (imbatível) ou dois jogadores no mesmo PC.
 
-![executing V2](/v2_with_GUI/images/executing.gif)
+```sh
+cd v1_without_GUI
+python main.py
+```
+
+## :green_book: V2 — Interface gráfica
+
+Offline (sozinho ou com um amigo no mesmo PC) ou online pela rede.
+
+```sh
+cd v2_with_GUI
+pip install -r requirements.txt
+python main.py
+```
+
+![executando V2](./v2_with_GUI/images/executing.gif)

@@ -1,5 +1,5 @@
 #Imports
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 class MenuScreen:
     def __init__(self):

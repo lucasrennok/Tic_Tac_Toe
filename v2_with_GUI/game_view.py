@@ -1,5 +1,5 @@
 #Imports
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from tictactoe import TicTacToe
 from random import randint
 from multiplayer import multiplayer
